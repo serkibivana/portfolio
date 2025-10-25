@@ -84,15 +84,36 @@ $(function () {
         animationDuration: 0.4
     });
     
-    /*========== Start Magnigic Popup Js ==========*/
+    /*========== Portfolio modal on click (replace Magnific Popup) ==========*/
     if ($('.portfolio-content .item')[0]) {
 
-        $('.portfolio-content .item').magnificPopup({
-            delegate: '.icon-img',
-            type: 'image',
-            gallery: {
-                enabled: true
-            }
+        // When the small search icon is clicked, prevent default navigation and open modal
+        $('.portfolio-content').on('click', '.icon-img', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            $(this).closest('.item').trigger('click');
+        });
+
+        // When an item is clicked (touch or click), populate and show the Bootstrap modal
+        $('.portfolio-content').on('click', '.filtr-item .item', function (e) {
+            e && e.preventDefault();
+            var item = $(this);
+            var title = item.data('title') || item.find('.item-title').text();
+            var desc = item.data('desc') || '';
+            var img = item.find('img').attr('src');
+            var demo = item.data('demo');
+            var source = item.data('source');
+
+            $('#portfolioModalLabel').text(title);
+            $('#portfolioModal .modal-body img').attr('src', img);
+            $('#portfolioModal .modal-body .desc').text(desc);
+
+            var $demoBtn = $('#portfolioModal .btn-demo');
+            var $sourceBtn = $('#portfolioModal .btn-source');
+            if (demo) { $demoBtn.attr('href', demo).show(); } else { $demoBtn.hide(); }
+            if (source) { $sourceBtn.attr('href', source).show(); } else { $sourceBtn.hide(); }
+
+            $('#portfolioModal').modal('show');
         });
     }
     
