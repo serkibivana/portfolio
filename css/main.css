@@ -813,6 +813,34 @@ h6 {
     font-family: 'Open Sans', sans-serif;
 }
 
+/* New: skills icon grid */
+.skills-grid{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:24px;
+    padding:20px 0 40px;
+}
+.skills-grid .skill-item{
+    width:120px;
+    text-align:center;
+    color:#c2c0c3;
+}
+.skills-grid .skill-item img{
+    width:64px;
+    height:64px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 10px;
+    filter:grayscale(0.4) brightness(1.1);
+}
+.skills-grid .skill-item span{
+    display:block;
+    font-size:13px;
+    letter-spacing:.6px;
+    margin-top:6px;
+}
+
 /* --------------------------------------
    10. Portfolio
 -----------------------------------------*/
