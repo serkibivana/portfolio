@@ -812,27 +812,55 @@ h6 {
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:24px;
-    padding:20px 0 40px;
+    gap:20px;
+    padding:18px 0 36px;
 }
 .skills-grid .skill-item{
-    width:120px;
+    width:88px;
     text-align:center;
     color:#c2c0c3;
 }
 .skills-grid .skill-item img{
-    width:64px;
-    height:64px;
+    width:40px;
+    height:40px;
     object-fit:contain;
     display:block;
-    margin:0 auto 10px;
+    margin:0 auto 8px;
+    filter:grayscale(0.4) brightness(1.1);
+}
+.skills-grid .skill-item i{
+    display:block;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    font-size:24px; /* icon font size; keeps icons visually balanced */
+    margin:0 auto 8px;
+    color:inherit;
     filter:grayscale(0.4) brightness(1.1);
 }
 .skills-grid .skill-item span{
     display:block;
-    font-size:13px;
-    letter-spacing:.6px;
-    margin-top:6px;
+    font-size:12px;
+    letter-spacing:.5px;
+    margin-top:4px;
+}
+
+/* Make icons slightly smaller on very small screens */
+@media (max-width: 575.98px) {
+    .skills-grid .skill-item{
+        width:72px;
+    }
+    .skills-grid .skill-item img,
+    .skills-grid .skill-item i{
+        width:32px;
+        height:32px;
+        line-height:32px;
+        font-size:20px;
+        margin-bottom:6px;
+    }
+    .skills-grid .skill-item span{
+        font-size:11px;
+    }
 }
 
 /* --------------------------------------
